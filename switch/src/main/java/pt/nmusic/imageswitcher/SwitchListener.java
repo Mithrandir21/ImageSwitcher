@@ -1,4 +1,4 @@
-package com.nmusic.imageswitcher;
+package pt.nmusic.imageswitcher;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;

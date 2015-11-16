@@ -1,4 +1,4 @@
-package com.nmusic.imageswitcher;
+package pt.nmusic.imageswitcher;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

@@ -1,4 +1,4 @@
-package com.nmusic.imageswitcher;
+package pt.nmusic.imageswitcher;
 
 import org.junit.Test;
 

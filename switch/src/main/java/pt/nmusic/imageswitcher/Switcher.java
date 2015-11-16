@@ -1,4 +1,4 @@
-package com.nmusic.imageswitcher;
+package pt.nmusic.imageswitcher;
 
 /**
  * Created by bam on 14/11/15.
