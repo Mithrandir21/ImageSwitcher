@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ImageSwitcher.iml" filepath="$PROJECT_DIR$/ImageSwitcher.iml" />
-      <module fileurl="file://$PROJECT_DIR$/switch/switch.iml" filepath="$PROJECT_DIR$/switch/switch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ImageSwitcher/ImageSwitcher-ImageSwitcher.iml" filepath="$PROJECT_DIR$/ImageSwitcher/ImageSwitcher-ImageSwitcher.iml" />
     </modules>
   </component>
 </project>

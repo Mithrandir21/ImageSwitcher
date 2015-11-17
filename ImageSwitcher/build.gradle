@@ -8,7 +8,7 @@ ext {
     libraryName = 'ImageSwitcher'
     artifact = 'ImageSwitcher'
 
-    libraryDescription = 'A library for simple communication with Google Cloud Storage for Android.'
+    libraryDescription = 'An Android library allowing for easy, configuration-less, touch view switching.'
 
     siteUrl = 'https://github.com/Mithrandir21/ImageSwitcher'
     gitUrl = 'https://github.com/Mithrandir21/ImageSwitcher.git'
@@ -51,5 +51,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
 
     // Fresco (Drawee)
-    compile 'com.facebook.fresco:fresco:0.7.0+'
+    compile 'com.facebook.fresco:fresco:0.8.0'
 }
