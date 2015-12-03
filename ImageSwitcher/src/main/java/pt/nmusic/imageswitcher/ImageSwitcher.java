@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class ImageSwitcher implements Switcher
 {
     private ArrayList<Uri> imageUri;
-    private ViewTracker    viewTracker;
+    public ViewTracker    viewTracker;
 
     private int currentIndex = 0;
 

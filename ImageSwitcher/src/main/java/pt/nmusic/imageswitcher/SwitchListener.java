@@ -185,7 +185,7 @@ public class SwitchListener implements View.OnTouchListener
     /**
      * Initialization of a Swipe event.
      */
-    private void initSwipeEvent()
+    public void initSwipeEvent()
     {
         // Set the STATE
         touchInProgress = true;
@@ -224,7 +224,7 @@ public class SwitchListener implements View.OnTouchListener
      *
      * @param swipeSuccessful Whether a switch occurred or not. Reset View positions on False.
      */
-    private void resetSwipeEvent( boolean swipeSuccessful )
+    public void resetSwipeEvent( boolean swipeSuccessful )
     {
         if( !swipeSuccessful )
         {
@@ -237,7 +237,7 @@ public class SwitchListener implements View.OnTouchListener
     }
 
 
-    private void moveBackgroundLeft()
+    public void moveBackgroundLeft()
     {
         // Re-align backgrounds.
         final View previousBackground = viewTracker.getPreviousImage();
@@ -319,7 +319,7 @@ public class SwitchListener implements View.OnTouchListener
     }
 
 
-    private void moveBackgroundCenter()
+    public void moveBackgroundCenter()
     {
         // Re-align backgrounds.
         final View previousBackground = viewTracker.getPreviousImage();
@@ -388,7 +388,7 @@ public class SwitchListener implements View.OnTouchListener
     }
 
 
-    private void moveBackgroundRight()
+    public void moveBackgroundRight()
     {
         // Re-align backgrounds.
         final View previousBackground = viewTracker.getPreviousImage();
@@ -476,7 +476,7 @@ public class SwitchListener implements View.OnTouchListener
      *
      * @param x
      */
-    private void moveBackgrounds( float x )
+    public void moveBackgrounds( float x )
     {
         View previousBackground = viewTracker.getPreviousImage();
         View showingBackground = viewTracker.getShowingImage();
