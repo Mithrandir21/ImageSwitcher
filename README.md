@@ -58,3 +58,10 @@ touchViewGroup.setOnTouchListener(switchListener);
   
 </FrameLayout>
 ```
+
+
+### Change Log
+
+##### Version 0.2
+- Made some internal SwitchListener functions public for easier access and funtionality.
+- Updated from Fresco 0.7 to 0.8.
