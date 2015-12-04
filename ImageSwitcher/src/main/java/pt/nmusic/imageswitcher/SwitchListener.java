@@ -44,7 +44,7 @@ public class SwitchListener implements View.OnTouchListener
 
     /**
      * Constructor for the class with the necessary variables.
-     * <p/>
+     * <p>
      * This sets up the SwitcherListener with stock parameters.
      *
      * @param context
@@ -92,7 +92,7 @@ public class SwitchListener implements View.OnTouchListener
 
     /**
      * Set the duration of the switch animation.
-     * <p/>
+     * <p>
      * Remember, this is the time it takes the animation to complete. This is affected by the space
      * remaining to travel or any other factors.
      */
@@ -147,9 +147,9 @@ public class SwitchListener implements View.OnTouchListener
     /**
      * This function is placed here because the GestureDetector and Listener do not have a
      * onUp function to determine when the users finger has been removed form the screen.
-     * <p/>
+     * <p>
      * It is here the users actions will be determined and finalized.
-     * <p/>
+     * <p>
      * NOTE: This will only happen if the
      * {@link GestureListener#onFling(MotionEvent, MotionEvent, float, float)} is not called.
      *
@@ -167,12 +167,12 @@ public class SwitchListener implements View.OnTouchListener
             // Determine if the distanceScrolled is passed the "switchScrollThreshold"
             if( distanceScrolled > switchScrollThreshold && switcher.hasNext() ) // Moved to the left.
             {
-                moveBackgroundLeft();
+                moveBackgroundLeft(false);
                 switchPlayable = true;
             }
             else if( distanceScrolled < -switchScrollThreshold && switcher.hasPrevious() ) // Moved to the right.
             {
-                moveBackgroundRight();
+                moveBackgroundRight(false);
                 switchPlayable = true;
             }
 
@@ -237,7 +237,7 @@ public class SwitchListener implements View.OnTouchListener
     }
 
 
-    public void moveBackgroundLeft()
+    public void moveBackgroundLeft( final boolean userInitiated )
     {
         // Re-align backgrounds.
         final View previousBackground = viewTracker.getPreviousImage();
@@ -296,12 +296,12 @@ public class SwitchListener implements View.OnTouchListener
                     ObjectAnimator.ofFloat(videoSurfaceContainer, "x", 0).setDuration(1).start();
                 }
 
-                switcher.nextAction();
+                switcher.nextAction(userInitiated);
                 viewTracker.switchNext(); // This rotates the View to be in the correct order.
 
                 // Perform Prepare actions
-                switcher.prepareNextView();
-                switcher.preparePreviousView();
+                switcher.prepareNextView(userInitiated);
+                switcher.preparePreviousView(userInitiated);
             }
 
             @Override
@@ -388,7 +388,12 @@ public class SwitchListener implements View.OnTouchListener
     }
 
 
-    public void moveBackgroundRight()
+    /**
+     * @param userInitiated A boolean indicating whether the function has been called because of a
+     *                      user performed action or called by the system in some other way.
+     *                      Can be used to differentiate between Touch and System initiated events.
+     */
+    public void moveBackgroundRight( final boolean userInitiated )
     {
         // Re-align backgrounds.
         final View previousBackground = viewTracker.getPreviousImage();
@@ -447,12 +452,12 @@ public class SwitchListener implements View.OnTouchListener
                     ObjectAnimator.ofFloat(videoSurfaceContainer, "x", 0).setDuration(1).start();
                 }
 
-                switcher.previousAction();
+                switcher.previousAction(userInitiated);
                 viewTracker.switchPrevious(); // This rotates the View to be in the correct order.
 
                 // Perform Prepare actions
-                switcher.prepareNextView();
-                switcher.preparePreviousView();
+                switcher.prepareNextView(userInitiated);
+                switcher.preparePreviousView(userInitiated);
             }
 
             @Override
@@ -661,12 +666,12 @@ public class SwitchListener implements View.OnTouchListener
                 {
                     if( velocityX < 0 && switcher.hasNext() )
                     {
-                        moveBackgroundLeft();
+                        moveBackgroundLeft(false);
                         swipeSuccessful = true;
                     }
                     else if( velocityX > 0 && switcher.hasPrevious() )
                     {
-                        moveBackgroundRight();
+                        moveBackgroundRight(false);
                         swipeSuccessful = true;
                     }
                 }

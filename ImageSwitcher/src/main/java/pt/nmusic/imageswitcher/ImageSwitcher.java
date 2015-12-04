@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class ImageSwitcher implements Switcher
 {
     private ArrayList<Uri> imageUri;
-    public ViewTracker    viewTracker;
+    public  ViewTracker    viewTracker;
 
     private int currentIndex = 0;
 
@@ -96,9 +96,13 @@ public class ImageSwitcher implements Switcher
      * It can also be empty if no actions are needed.
      * <p/>
      * NOTE: Remember to make the "videoSurfaceContainer" Visible/Invisible as needed.
+     *
+     * @param userInitiated A boolean indicating whether the function has been called because of a
+     *                      user performed action or called by the system in some other way.
+     *                      Can be used to differentiate between Touch and System initiated events.
      */
     @Override
-    public boolean nextAction()
+    public boolean nextAction( boolean userInitiated )
     {
         currentIndex = currentIndex + 1;
 
@@ -116,9 +120,13 @@ public class ImageSwitcher implements Switcher
      * It can also be empty if no actions are needed.
      * <p/>
      * NOTE: Remember to make the "videoSurfaceContainer" Visible/Invisible as needed.
+     *
+     * @param userInitiated A boolean indicating whether the function has been called because of a
+     *                      user performed action or called by the system in some other way.
+     *                      Can be used to differentiate between Touch and System initiated events.
      */
     @Override
-    public boolean previousAction()
+    public boolean previousAction( boolean userInitiated )
     {
         currentIndex = currentIndex - 1;
 
@@ -132,9 +140,13 @@ public class ImageSwitcher implements Switcher
      * This action is performed any time a switch takes place, but after the
      * {@link ViewTracker#switchNext()} or {@link ViewTracker#switchPrevious()}, so it can perform
      * the prepare action on the correct View.
+     *
+     * @param userInitiated A boolean indicating whether the function has been called because of a
+     *                      user performed action or called by the system in some other way.
+     *                      Can be used to differentiate between Touch and System initiated events.
      */
     @Override
-    public boolean prepareNextView()
+    public boolean prepareNextView( boolean userInitiated )
     {
         // This will return the next Uri is there exists one.
         if( hasNext() )
@@ -168,9 +180,13 @@ public class ImageSwitcher implements Switcher
      * This action is performed any time a switch takes place, but after the
      * {@link ViewTracker#switchNext()} or {@link ViewTracker#switchPrevious()}, so it can perform
      * the prepare action on the correct View.
+     *
+     * @param userInitiated A boolean indicating whether the function has been called because of a
+     *                      user performed action or called by the system in some other way.
+     *                      Can be used to differentiate between Touch and System initiated events.
      */
     @Override
-    public boolean preparePreviousView()
+    public boolean preparePreviousView( boolean userInitiated )
     {
         // This will return the next Uri is there exists one.
         if( hasPrevious() )
