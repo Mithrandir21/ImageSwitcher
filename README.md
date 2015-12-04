@@ -62,6 +62,9 @@ touchViewGroup.setOnTouchListener(switchListener);
 
 ### Change Log
 
+##### Version 0.3
+- Added Boolean parameters to Switcher functions to indicate whether function called because of user action or because of some system action.
+
 ##### Version 0.2
 - Made some internal SwitchListener functions public for easier access and functionality.
 - Updated from Fresco 0.7 to 0.8.
