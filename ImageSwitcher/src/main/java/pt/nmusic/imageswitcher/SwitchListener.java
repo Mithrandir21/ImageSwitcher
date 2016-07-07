@@ -40,7 +40,7 @@ public class SwitchListener implements View.OnTouchListener
     // The distance (in pixels) that the scroll has to pass to count as a desire to switch.
     private int switchScrollThreshold;
     // This variable determines at percentage of the screen scroll the switch should happen.
-    private float switchPercentage = 0.6f;
+    private float switchPercentage = 0.5f;
 
     /**
      * Constructor for the class with the necessary variables.
@@ -167,12 +167,12 @@ public class SwitchListener implements View.OnTouchListener
             // Determine if the distanceScrolled is passed the "switchScrollThreshold"
             if( distanceScrolled > switchScrollThreshold && switcher.hasNext() ) // Moved to the left.
             {
-                moveBackgroundLeft(false);
+                moveBackgroundLeft(true);
                 switchPlayable = true;
             }
             else if( distanceScrolled < -switchScrollThreshold && switcher.hasPrevious() ) // Moved to the right.
             {
-                moveBackgroundRight(false);
+                moveBackgroundRight(true);
                 switchPlayable = true;
             }
 
@@ -666,12 +666,12 @@ public class SwitchListener implements View.OnTouchListener
                 {
                     if( velocityX < 0 && switcher.hasNext() )
                     {
-                        moveBackgroundLeft(false);
+                        moveBackgroundLeft(true);
                         swipeSuccessful = true;
                     }
                     else if( velocityX > 0 && switcher.hasPrevious() )
                     {
-                        moveBackgroundRight(false);
+                        moveBackgroundRight(true);
                         swipeSuccessful = true;
                     }
                 }
