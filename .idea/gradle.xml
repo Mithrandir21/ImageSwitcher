@@ -12,6 +12,12 @@
             <option value="$PROJECT_DIR$/ImageSwitcher" />
           </set>
         </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ImageSwitcher" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>
